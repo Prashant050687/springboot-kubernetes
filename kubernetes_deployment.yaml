@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-kubernetes-deployment
+spec:
+  selector:
+    matchLabels:
+        app: springboot-kubernetes
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: springboot-kubernetes
+    spec:
+      containers:
+        - name: springboot-kubernetes
+          image: prashantdocker87/springboot-kubernetes:one
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+         
+              
