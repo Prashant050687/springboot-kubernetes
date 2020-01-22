@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: kubernetes-springboot-minikube-service
+  name: kubernetes-springboot-service
 spec:
   selector:
     # Should match the template.metadata.labels.app value

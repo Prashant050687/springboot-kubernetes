@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "kubernetes-springboot-ingress"
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "X-Forwarded-For, X-Forwarded-Proto, X-Forwarded-Port, X-Forwarded-Prefix"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
+ 
+  labels:
+    app: kubernetes-springboot-ingress
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /kubernetes-springboot-service/(.+)
+            backend:
+              serviceName: "kubernetes-springboot-service"
+              servicePort: 80
