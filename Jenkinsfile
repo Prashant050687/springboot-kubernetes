@@ -6,6 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
+        def workspace = pwd()
         git url:'https://github.com/Prashant050687/springboot-kubernetes.git', branch:'master'
       }
     }
