@@ -6,7 +6,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git url:'https://github.com/Prashant050687/springboot-kubernetes.git', branch:'master'
+       git credentialsId: 'Github', url: 'https://github.com/Prashant050687/springboot-kubernetes'
       }
     }
 
